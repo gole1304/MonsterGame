@@ -1,0 +1,12 @@
+.healt_bar{
+    display: flex;
+}
+.healt_item{
+    width: 50%;
+    padding: 10px 0;
+    margin: 10px;
+}
+.h_bar{
+    height: 25px;
+    background-color: rgba(6, 207, 90, 0.726);
+}

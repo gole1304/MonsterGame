@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue list rendering</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js" defer></script>
+
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>
+                MONSTER GAME
+            </h1>
+        </header>
+        <section>
+            <div class="healt_bar">
+                <div class="healt_item">
+                    <h2>
+                        Player healt ({{playerHealt}})
+                    </h2>
+                    <div class="h_bar" :style="pHealt"></div>
+                </div>
+                <div class="healt_item">
+                    <h2>
+                        Monster healt ({{monsterHealt}})
+                    </h2>
+                    <div class="h_bar" :style="mHealt"></div>
+                </div>
+            </div>
+            <div class="button_bar" v-if="!winner">
+                <button @click="playerAttack">Attack</button>
+                <button @click="specialAttack">Special Attack</button>
+                <button @click="Healting" :disabled="healts">Player Healting</button>
+                <button @click="Surrender">Player Surrend</button>
+            </div>
+            <section v-else>
+                <p>
+                    Winner is : <h2>{{winner}}</h2>
+                </p>
+                <div>
+                    <button @click="startGame">NEW GAME</button>
+                </div>
+
+            </section>
+        </section>
+        <section>
+            <h2>Log Messages</h2>
+            <ul>
+                <li v-for="log in logMsg" :key="log.when">
+                    <span>{{log.who}}</span> |
+                    <span>{{log.what}}</span> |
+                    <span>{{log.value}}</span> |
+                    <span>{{log.when}}</span> |
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
